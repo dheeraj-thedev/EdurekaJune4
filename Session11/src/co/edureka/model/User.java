@@ -19,6 +19,10 @@ public class User {
 		this.password = password;
 	}
 	
-	
-	
+	public boolean validate(){
+		if(name.isEmpty() || email.isEmpty() || password.isEmpty())
+			return false;
+		else 
+			return true;
+	}
 }

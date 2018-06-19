@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.edureka.db.JDBCHelper;
 import co.edureka.model.User;
@@ -38,9 +40,36 @@ public class LoginServlet extends HttpServlet {
 		boolean flag = helper.loginUser(user);
 		
 		if(flag){
-			out.print("Login Success !!");
+			
+			String name = "John Watson";
+			int age = 30;
+			
+			// Share the data among Servlets.
+			// Session Tracking !!
+			
+			//1. Cookies
+			/*Cookie ck1 = new Cookie("keyName", name);
+			Cookie ck2 = new Cookie("keyAge", String.valueOf(age));
+			
+			response.addCookie(ck1);
+			response.addCookie(ck2);
+			
+			out.print("<html><body><h3>Welcome User !!</h3><a href='Welcome'>Enter Home</a></body></html>");*/
+			
+			//2. URL ReWriting
+			/*String url = "Welcome?name="+name+"&age="+age;
+			
+			out.print("<html><body><h3>Welcome User !!</h3><a href='"+url+"'>Enter Home</a></body></html>");
+			*/
+			
+			//3. HttpSession
+			HttpSession session = request.getSession();
+			session.setAttribute("keyName", name);
+			session.setAttribute("keyAge", age);
+			out.print("<html><body><h3>Welcome User !!</h3><a href='Welcome'>Enter Home</a></body></html>");
 		}else{
 			out.print("Login Failed !!");
+			response.sendRedirect("https://www.google.in");
 		}
 		
 	}
