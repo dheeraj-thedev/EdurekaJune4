@@ -63,10 +63,18 @@ public class LoginServlet extends HttpServlet {
 			*/
 			
 			//3. HttpSession
-			HttpSession session = request.getSession();
+			/*HttpSession session = request.getSession();
 			session.setAttribute("keyName", name);
 			session.setAttribute("keyAge", age);
-			out.print("<html><body><h3>Welcome User !!</h3><a href='Welcome'>Enter Home</a></body></html>");
+			out.print("<html><body><h3>Welcome User !!</h3><a href='Welcome'>Enter Home</a></body></html>");*/
+			
+			//4. Hidden Form Fields
+			String form = "<form action='Welcome' method = 'post'>"
+					+ "<input type='hidden' name='txtName' value='"+name+"'/>"
+					+ "<input type='hidden' name='txtAge' value='"+age+"'/>"
+					+ "<input type='submit' value='Enter Home'/>"
+					+ "</form>";
+			out.print(form);
 		}else{
 			out.print("Login Failed !!");
 			response.sendRedirect("https://www.google.in");

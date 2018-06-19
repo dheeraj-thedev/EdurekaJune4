@@ -34,11 +34,13 @@ public class HomeServlet extends HttpServlet {
 		/*String name = request.getParameter("name");
 		String age = request.getParameter("age");*/
 		
-		HttpSession session = request.getSession();
+		/*HttpSession session = request.getSession();
 		
 		String name = (String)session.getAttribute("keyName");
-		int age = (int)session.getAttribute("keyAge");
+		int age = (int)session.getAttribute("keyAge");*/
 		
+		String name = request.getParameter("txtName");
+		String age = request.getParameter("txtAge");
 		out.print("Data: "+name+" | "+age);
 		
 	}
