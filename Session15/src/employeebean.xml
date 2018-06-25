@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+  <!--  <bean id="e2" class="co.edureka.Employee" scope="prototype"> -->
+<!--    <bean id="e2" class="co.edureka.Employee" init-method="myInit" destroy-method="myDestroy">
+       <property name="eid" value="2"/>
+       <property name="name" value="Fionna"/>
+       <property name="salary" value="57500"/>
+   </bean> -->
+   
+   <!-- <bean class="co.edureka.PostProcessor"/> -->
+   
+   <!-- <bean id="e3" class="co.edureka.Employee">
+       <property name="eid" value="3"/>
+       <property name="name" value="Sia"/>
+       <property name="salary" value="67000"/>
+   </bean> -->
+   
+   <!-- <bean id="fRef" class="co.edureka.Father">
+       <property name="fname" value="John"/>
+       <property name="lname" value="Watson"/>
+       <property name="money" value="100000"/>
+   </bean>
+   
+   <bean id="cRef" class="co.edureka.Child" parent="fRef">
+       <property name="fname" value="Sia"/>
+       <property name="vehicles" value="3"/>
+       <property name="compName" value="ABC Global"/>
+   </bean> -->
+   
+<!--    <bean id="aRef" class="co.edureka.Address">
+       <property name="adrsLine" value="Country Homes"/>
+       <property name="zipCode" value="520001"/>
+       <property name="city" value="Bengaluru"/>
+   </bean>
+   
+   <bean id="pRef" class="co.edureka.Person">
+       <property name="name" value="Sia"/>
+       <property name="email" value="sia@example.com"/>
+       <property name="age" value="30"/>
+        <constructor-arg ref="aRef"/>         Dependency Injection using Constructor
+       <property name="adrs" ref="aRef"/> 	 Dependency Injection using Setter
+       <property name="certificates"> 		 Dependency Injection using Setter on Collection
+       		<list>
+       			<value>OCJP</value>
+       			<value>CCNA</value>
+       			<value>AWS</value>
+       		</list>
+       		
+       		<set></set>
+       		<map></map>
+       		
+       </property>
+   </bean> -->
+   
+   <bean id="driver" class="co.edureka.Driver"/>
+   <bean id="vehicle" class="co.edureka.Vehicle"/>
+   <context:annotation-config/>
+
+</beans>
