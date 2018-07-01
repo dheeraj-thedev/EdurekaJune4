@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+      
+   <bean id="e1" class="co.edureka.bean.Employee">
+       <property name="eid" value="101"/>
+       <property name="name" value="Sia"/>
+       <property name="salary" value="67000"/>
+       <property name="email" value="sia@example.com"/>
+       <property name="designation" value="Software Engr"/>
+   </bean>
+   
+<!--     <bean id="e2" class="co.edureka.bean.Employee">
+       <property name="eid" value="201"/>
+       <property name="name" value="George"/>
+       <property name="salary" value="50000"/>
+       <property name="email" value="george@example.com"/>
+       <property name="designation" value="HR Manager"/>
+   </bean> -->
+   
+   <bean id="befAdv" class="co.edureka.bean.BeforeAdvice"/>
+   <bean id="aftAdv" class="co.edureka.bean.AfterAdvice"/>
+   
+   <bean id="e1Proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+   		<property name="target" ref="e1"/>
+   		<property name="interceptorNames">
+   			<list>
+   				<value>befAdv</value>
+   				<value>aftAdv</value>
+   			</list>
+   		</property>
+   </bean>
+
+   
+
+</beans>
